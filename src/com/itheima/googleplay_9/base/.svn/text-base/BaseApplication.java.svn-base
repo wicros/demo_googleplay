@@ -1,0 +1,58 @@
+package com.itheima.googleplay_9.base;
+
+import android.app.Application;
+import android.content.Context;
+import android.os.Handler;
+
+/**
+ * @创建者	 Administrator
+ * @创时间 	 2015-8-14 下午2:19:53
+ * @描述	     全局盒子,里面放置一些全局的变量或者方法,Application其实是一个单例
+ *
+ * @版本       $Rev$
+ * @更新者     $Author$
+ * @更新时间    $Date$
+ * @更新描述    TODO
+ */
+public class BaseApplication extends Application {
+
+	private static Context	mContext;
+	private static Handler	mHandler;
+	private static long		mMainThreadId;
+	private static Thread	mMainThread;
+
+	public static Context getContext() {
+		return mContext;
+	}
+
+	public static Handler getHandler() {
+		return mHandler;
+	}
+
+	public static long getMainThreadId() {
+		return mMainThreadId;
+	}
+
+	public static Thread getMainThread() {
+		return mMainThread;
+	}
+
+	@Override
+	public void onCreate() {// 程序入口方法
+		// 创建一些常见的变量
+
+		// 1.上下文
+		mContext = getApplicationContext();
+
+		// 2.创建一个handler
+		mHandler = new Handler();
+
+		// 3.得到一个主线程id
+		mMainThreadId = android.os.Process.myTid();
+
+		// 4.得到主线程
+		mMainThread = Thread.currentThread();
+		super.onCreate();
+	}
+
+}

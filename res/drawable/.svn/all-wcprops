@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/googlePlay_9/!svn/ver/16/trunk/googlePlay_9/res/drawable
+END
+selector_btn_bg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/googlePlay_9/!svn/ver/29/trunk/googlePlay_9/res/drawable/selector_btn_bg.xml
+END
+selector_grid_item_bg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/googlePlay_9/!svn/ver/31/trunk/googlePlay_9/res/drawable/selector_grid_item_bg.xml
+END
+shape_hot_flowlayout_tv.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/googlePlay_9/!svn/ver/29/trunk/googlePlay_9/res/drawable/shape_hot_flowlayout_tv.xml
+END
+selector_app_detail_bottom_normal.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/googlePlay_9/!svn/ver/44/trunk/googlePlay_9/res/drawable/selector_app_detail_bottom_normal.xml
+END
+layerlist_rating.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/googlePlay_9/!svn/ver/16/trunk/googlePlay_9/res/drawable/layerlist_rating.xml
+END
+selector_item_appinfo_bg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/googlePlay_9/!svn/ver/45/trunk/googlePlay_9/res/drawable/selector_item_appinfo_bg.xml
+END
+menu_item_bg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/googlePlay_9/!svn/ver/45/trunk/googlePlay_9/res/drawable/menu_item_bg.xml
+END
+layerlist_loading_pb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/googlePlay_9/!svn/ver/45/trunk/googlePlay_9/res/drawable/layerlist_loading_pb.xml
+END
+selector_detail_btn_bg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/googlePlay_9/!svn/ver/37/trunk/googlePlay_9/res/drawable/selector_detail_btn_bg.xml
+END
+selector_app_detail_bottom_downloading.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/googlePlay_9/!svn/ver/44/trunk/googlePlay_9/res/drawable/selector_app_detail_bottom_downloading.xml
+END
+layerlist_loadmore_pb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/googlePlay_9/!svn/ver/45/trunk/googlePlay_9/res/drawable/layerlist_loadmore_pb.xml
+END

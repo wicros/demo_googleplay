@@ -1,0 +1,76 @@
+package com.itheima.googleplay_9.hodler;
+
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import com.itheima.googleplay_9.R;
+import com.itheima.googleplay_9.base.BaseHolder;
+import com.itheima.googleplay_9.bean.AppInfoBean;
+import com.itheima.googleplay_9.conf.Constants.URLS;
+import com.itheima.googleplay_9.utils.BitmapHelper;
+import com.itheima.googleplay_9.utils.StringUtils;
+import com.itheima.googleplay_9.utils.UIUtils;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
+
+/**
+ * @创建者	 Administrator
+ * @创时间 	 2015-8-18 下午2:46:20
+ * @描述	     TODO
+ *
+ * @版本       $Rev: 36 $
+ * @更新者     $Author: admin $
+ * @更新时间    $Date: 2015-08-18 15:32:51 +0800 (星期二, 18 八月 2015) $
+ * @更新描述    TODO
+ */
+public class AppDetailInfoHolder extends BaseHolder<AppInfoBean> {
+	@ViewInject(R.id.app_detail_info_iv_icon)
+	ImageView	mIvIcon;
+
+	@ViewInject(R.id.app_detail_info_rb_star)
+	RatingBar	mRbStar;
+
+	@ViewInject(R.id.app_detail_info_tv_time)
+	TextView	mTvTime;
+
+	@ViewInject(R.id.app_detail_info_tv_downloadnum)
+	TextView	mTvDownloadNum;
+
+	@ViewInject(R.id.app_detail_info_tv_name)
+	TextView	mTvName;
+
+	@ViewInject(R.id.app_detail_info_tv_size)
+	TextView	mTvSize;
+
+	@ViewInject(R.id.app_detail_info_tv_version)
+	TextView	mTvVersion;
+
+	@Override
+	protected View initHolderView() {
+		View view = View.inflate(UIUtils.getContext(), R.layout.item_app_detail_info, null);
+		ViewUtils.inject(this, view);
+		return view;
+	}
+
+	@Override
+	protected void rerefreshHolderView(AppInfoBean data) {
+		String date = UIUtils.getString(R.string.appdetail_date, data.date);
+		String downLoadNum = UIUtils.getString(R.string.appdetail_downLoadnum, data.downloadNum);
+		String size = UIUtils.getString(R.string.appdetail_size, StringUtils.formatFileSize(data.size));
+		String version = UIUtils.getString(R.string.appdetail_version, data.version);
+		mTvName.setText(data.name);
+
+		mTvDownloadNum.setText(downLoadNum);
+		mTvSize.setText(size);
+		mTvTime.setText(date);
+		mTvVersion.setText(version);
+
+		mIvIcon.setImageResource(R.drawable.ic_default);
+		BitmapHelper.display(mIvIcon, URLS.IMAGEBASEURL + data.iconUrl);
+
+		mRbStar.setRating(data.stars);
+	}
+
+}

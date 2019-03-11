@@ -1,0 +1,261 @@
+package com.itheima.googleplay_9.hodler;
+
+import java.io.File;
+
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import com.itheima.googleplay_9.R;
+import com.itheima.googleplay_9.base.BaseHolder;
+import com.itheima.googleplay_9.bean.AppInfoBean;
+import com.itheima.googleplay_9.conf.Constants.URLS;
+import com.itheima.googleplay_9.manager.DownLoadInfo;
+import com.itheima.googleplay_9.manager.DownLoadManager;
+import com.itheima.googleplay_9.manager.DownLoadManager.DownLoadObserver;
+import com.itheima.googleplay_9.utils.BitmapHelper;
+import com.itheima.googleplay_9.utils.CommonUtils;
+import com.itheima.googleplay_9.utils.PrintDownLoadInfo;
+import com.itheima.googleplay_9.utils.StringUtils;
+import com.itheima.googleplay_9.utils.UIUtils;
+import com.itheima.googleplay_9.views.ProgressView;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
+
+/**
+ * @创建者	 Administrator
+ * @创时间 	 2015-8-15 上午10:47:18
+ * @描述	     TODO
+ *
+ * @版本       $Rev: 45 $
+ * @更新者     $Author: admin $
+ * @更新时间    $Date: 2015-08-19 17:20:02 +0800 (星期三, 19 八月 2015) $
+ * @更新描述    TODO
+ */
+public class AppItemHolder extends BaseHolder<AppInfoBean> implements OnClickListener, DownLoadObserver {
+
+	@ViewInject(R.id.item_appinfo_iv_icon)
+	ImageView			mIvIcon;
+
+	@ViewInject(R.id.item_appinfo_rb_stars)
+	RatingBar			mRbStars;
+
+	@ViewInject(R.id.item_appinfo_tv_des)
+	TextView			mTvDes;
+
+	@ViewInject(R.id.item_appinfo_tv_size)
+	TextView			mTvSize;
+
+	@ViewInject(R.id.item_appinfo_tv_title)
+	TextView			mTvTittle;
+	@ViewInject(R.id.item_appinfo_progressView)
+	ProgressView		mProgressView;
+
+	private AppInfoBean	mData;
+
+	@Override
+	protected View initHolderView() {
+		View view = View.inflate(UIUtils.getContext(), R.layout.item_app_info, null);
+		// 初始化孩子对象
+		ViewUtils.inject(this, view);
+		mProgressView.setOnClickListener(this);
+		return view;
+	}
+
+	@Override
+	protected void rerefreshHolderView(AppInfoBean data) {
+		//每次显示之前我就置空进度
+		mProgressView.setProgress(0);
+		
+		mData = data;
+
+		mTvDes.setText(data.des);
+		mTvSize.setText(StringUtils.formatFileSize(data.size));
+		mTvTittle.setText(data.name);
+		// 设置评分
+		mRbStars.setRating(data.stars);
+		// 设置图标
+		mIvIcon.setImageResource(R.drawable.ic_default);
+		// 加载图片
+		// BitmapUtils bitmapUtils = new BitmapUtils(UIUtils.getContext());
+		// http://localhost:8080/GooglePlayServer/image?
+		// name=app/com.itheima.www/icon.jpg
+		BitmapHelper.display(mIvIcon, URLS.IMAGEBASEURL + data.iconUrl);
+
+		/*=============== 根据不同的状态给用户提示 ===============*/
+		DownLoadInfo info = DownLoadManager.getInstance().getDownLoadInfo(mData);
+		refreshProgressViewUI(info);
+	}
+
+	public void refreshProgressViewUI(DownLoadInfo info) {
+
+		/**
+		状态(编程记录)  	|  给用户的提示(ui展现) 
+		未下载			|下载				    	
+		下载中			|显示进度条		   			
+		暂停下载			|继续下载				
+		等待下载			|等待中...				
+		下载失败 			|重试						
+		下载完成 			|安装						
+		已安装 			|打开						
+		 */
+		//
+		switch (info.state) {
+
+		case DownLoadManager.STATE_UNDOWNLOAD:// 未下载
+			mProgressView.setNote("下载");
+			mProgressView.setIcon(R.drawable.ic_download);
+			break;
+		case DownLoadManager.STATE_DOWNLOADING:// 下载中
+			mProgressView.setProgressEnable(true);
+			mProgressView.setMax(info.max);
+			mProgressView.setProgress(info.progress);
+			int progress = (int) (info.progress * 1.0f / info.max * 100 + .5f);
+			mProgressView.setNote(progress + "%");
+			mProgressView.setIcon(R.drawable.ic_pause);
+			break;
+		case DownLoadManager.STATE_PAUSEDOWNLOAD:// 暂停下载
+			mProgressView.setNote("继续");
+			mProgressView.setIcon(R.drawable.ic_resume);
+			break;
+		case DownLoadManager.STATE_WAITINGDOWNLOAD:// 等待下载
+			mProgressView.setNote("等待中...");
+			mProgressView.setIcon(R.drawable.ic_pause);
+			break;
+		case DownLoadManager.STATE_DOWNLOADFAILED:// 下载失败
+			mProgressView.setNote("重试");
+			mProgressView.setIcon(R.drawable.ic_redownload);
+			break;
+		case DownLoadManager.STATE_DOWNLOADED:// 下载完成
+			mProgressView.setNote("安装");
+			mProgressView.setIcon(R.drawable.ic_install);
+			break;
+		case DownLoadManager.STATE_INSTALLED:// 已安装
+			mProgressView.setNote("打开");
+			mProgressView.setIcon(R.drawable.ic_install);
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.item_appinfo_progressView:
+			/*=============== 根据不同的状态触发不同的操作 ===============*/
+			// 得到当前的状态-->其实就是希望downLoadManager能够返回当前的downLoadInfo(state)
+			DownLoadInfo info = DownLoadManager.getInstance().getDownLoadInfo(mData);
+			switch (info.state) {
+			case DownLoadManager.STATE_UNDOWNLOAD:// 未下载
+				doDownLoad(info);
+				break;
+			case DownLoadManager.STATE_DOWNLOADING:// 下载中
+				pauseDownLoad(info);
+				break;
+			case DownLoadManager.STATE_PAUSEDOWNLOAD:// 暂停下载
+				doDownLoad(info);
+				break;
+			case DownLoadManager.STATE_WAITINGDOWNLOAD:// 等待下载
+				cancelDownLoad(info);
+				break;
+			case DownLoadManager.STATE_DOWNLOADFAILED:// 下载失败
+				doDownLoad(info);
+				break;
+			case DownLoadManager.STATE_DOWNLOADED:// 下载完成
+				installApk(info);
+				break;
+			case DownLoadManager.STATE_INSTALLED:// 已安装
+				openApk(info);
+				break;
+
+			default:
+				break;
+			}
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	/**
+	 * 安装apk
+	 * @param info
+	 */
+	private void installApk(DownLoadInfo info) {
+		File apkFile = new File(info.savePath);
+		CommonUtils.installApp(UIUtils.getContext(), apkFile);
+	}
+
+	/**
+	 * 打开apk
+	 * @param info
+	 */
+	private void openApk(DownLoadInfo info) {
+		CommonUtils.openApp(UIUtils.getContext(), info.packageName);
+	}
+
+	/**
+	 * 开始下载
+	 * @param info
+	 */
+	public void doDownLoad(DownLoadInfo info) {
+		// 开始下载
+		// 开线程池-->请求网络-->保存文件
+		// ThreadFactory.getDownLoadPool().execute(new DownLoadTask());
+		// 下载地址
+		// 下载文件保存到哪里
+		/*DownLoadInfo info = new DownLoadInfo();
+		info.downLoadUrl = mData.downloadUrl;
+
+		// 保存的文件夹
+		String dir = FileUtils.getDir("apk");// sdcard/android/data/包名/apk
+		String saveName = mData.packageName + ".apk";
+		File saveFile = new File(dir, saveName);// com.itheima.www.apk
+
+		info.savePath = saveFile.getAbsolutePath();// sdcard/android/data/包名/apk/com.itheima.www.apk
+
+		info.packageName = mData.packageName;*/
+		DownLoadManager.getInstance().downLoad(info);
+	}
+
+	/**
+	 * 暂停下载
+	 * @param info
+	 */
+	private void pauseDownLoad(DownLoadInfo info) {
+		DownLoadManager.getInstance().pauseDownLoad(info);
+	}
+
+	/**
+	 * 取消下载
+	 * @param info
+	 */
+	private void cancelDownLoad(DownLoadInfo info) {
+		DownLoadManager.getInstance().cancelDownLoad(info);
+	}
+
+	/*=============== 时刻监听DownLoadManger发布的最新的downLoadInfo ===============*/
+	@Override
+	public void onDownloadInfoChange(final DownLoadInfo downLoadInfo) {
+		// 过滤
+		if (!mData.packageName.equals(downLoadInfo.packageName)) {
+			return;
+		}
+
+		PrintDownLoadInfo.printDownLoadInfo(downLoadInfo);
+		// 刷新ui
+		UIUtils.postTaskSafely(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO
+				refreshProgressViewUI(downLoadInfo);
+			}
+		});
+	}
+}

@@ -1,0 +1,33 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 27
+/svn/googlePlay_9/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/googlePlay_9/!svn/ver/24/trunk/googlePlay_9
+END
+proguard-project.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/googlePlay_9/!svn/ver/3/trunk/googlePlay_9/proguard-project.txt
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/googlePlay_9/!svn/ver/33/trunk/googlePlay_9/AndroidManifest.xml
+END
+ic_launcher-web.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/googlePlay_9/!svn/ver/3/trunk/googlePlay_9/ic_launcher-web.png
+END
+project.properties
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/googlePlay_9/!svn/ver/46/trunk/googlePlay_9/project.properties
+END

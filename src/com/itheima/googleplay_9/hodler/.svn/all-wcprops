@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/googlePlay_9/!svn/ver/24/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler
+END
+AppItemHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/googlePlay_9/!svn/ver/45/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/AppItemHolder.java
+END
+AppDetailDesHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/googlePlay_9/!svn/ver/37/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/AppDetailDesHolder.java
+END
+AppDetailInfoHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/googlePlay_9/!svn/ver/36/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/AppDetailInfoHolder.java
+END
+AppDetailSafeHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/googlePlay_9/!svn/ver/37/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/AppDetailSafeHolder.java
+END
+MenuHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/googlePlay_9/!svn/ver/45/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/MenuHolder.java
+END
+PictureHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/googlePlay_9/!svn/ver/46/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/PictureHolder.java
+END
+AppDetailBottomHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/googlePlay_9/!svn/ver/44/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/AppDetailBottomHolder.java
+END
+SubjectHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/googlePlay_9/!svn/ver/27/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/SubjectHolder.java
+END
+CategoryInfoHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/googlePlay_9/!svn/ver/31/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/CategoryInfoHolder.java
+END
+LoadMoreHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/googlePlay_9/!svn/ver/16/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/LoadMoreHolder.java
+END
+CategoryTitleHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/googlePlay_9/!svn/ver/31/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/CategoryTitleHolder.java
+END
+AppDetailPicHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/googlePlay_9/!svn/ver/37/trunk/googlePlay_9/src/com/itheima/googleplay_9/hodler/AppDetailPicHolder.java
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/googlePlay_9/!svn/ver/24/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol
+END
+GameProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/googlePlay_9/!svn/ver/24/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol/GameProtocol.java
+END
+AppDetailProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/googlePlay_9/!svn/ver/34/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol/AppDetailProtocol.java
+END
+AppProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/googlePlay_9/!svn/ver/22/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol/AppProtocol.java
+END
+HomeProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/googlePlay_9/!svn/ver/20/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol/HomeProtocol.java
+END
+CategoryProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/googlePlay_9/!svn/ver/30/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol/CategoryProtocol.java
+END
+HotProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/googlePlay_9/!svn/ver/29/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol/HotProtocol.java
+END
+SubjectProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/googlePlay_9/!svn/ver/27/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol/SubjectProtocol.java
+END
+RecommendProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/googlePlay_9/!svn/ver/32/trunk/googlePlay_9/src/com/itheima/googleplay_9/protocol/RecommendProtocol.java
+END

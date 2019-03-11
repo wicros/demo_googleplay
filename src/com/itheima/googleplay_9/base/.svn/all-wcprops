@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/googlePlay_9/!svn/ver/21/trunk/googlePlay_9/src/com/itheima/googleplay_9/base
+END
+BaseActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/googlePlay_9/!svn/ver/38/trunk/googlePlay_9/src/com/itheima/googleplay_9/base/BaseActivity.java
+END
+BaseApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/googlePlay_9/!svn/ver/6/trunk/googlePlay_9/src/com/itheima/googleplay_9/base/BaseApplication.java
+END
+BaseHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/googlePlay_9/!svn/ver/15/trunk/googlePlay_9/src/com/itheima/googleplay_9/base/BaseHolder.java
+END
+BaseFragmentCommon.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/googlePlay_9/!svn/ver/8/trunk/googlePlay_9/src/com/itheima/googleplay_9/base/BaseFragmentCommon.java
+END
+BaseProtocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/googlePlay_9/!svn/ver/45/trunk/googlePlay_9/src/com/itheima/googleplay_9/base/BaseProtocol.java
+END
+LoadingPager.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/googlePlay_9/!svn/ver/10/trunk/googlePlay_9/src/com/itheima/googleplay_9/base/LoadingPager.java
+END
+SuperBaseAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/googlePlay_9/!svn/ver/33/trunk/googlePlay_9/src/com/itheima/googleplay_9/base/SuperBaseAdapter.java
+END
+BaseFragment.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/googlePlay_9/!svn/ver/27/trunk/googlePlay_9/src/com/itheima/googleplay_9/base/BaseFragment.java
+END
